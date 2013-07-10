@@ -1,0 +1,20 @@
+%h1
+  Album:
+  = @album.name
+
+%h2
+  Pictures
+
+- @pictures.each do |picture|
+  .picture
+    %img{src:picture.url}
+    = link_to "Delete", album_picture_path(@album, picture), method: :delete
+
+%br
+
+%h3
+  New Picture
+
+
+= render partial:"pictures/form"
+

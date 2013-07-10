@@ -1,0 +1,8 @@
+%h1 Albums
+- Album.all.each do |album|
+  = link_to album.name, album_path(album)
+  %br
+
+%br
+
+= link_to "New Album", new_album_path
