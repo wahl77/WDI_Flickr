@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :picture do
-    album nil
-    url "MyString"
+    album 
+    url File.open(File.join(Rails.root, "/public/Test.jpg"))
   end
 end

@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Album do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "must have a name" do
+    a = Album.new()
+    expect(a.valid?).to be_false
+  end
 end
