@@ -3,3 +3,19 @@
 
 %h2 Albums
 = link_to "Browse Albums", albums_path
+
+
+- if current_user 
+  Logged in as 
+  = current_user.username
+  = link_to "Logout", logout_path
+- else
+  = link_to "Signup", signup_path
+  = link_to "Login", login_path
+
+
+- User.all.each do |user|
+  = user.username
+  ,
+  = user.email
+  %br
