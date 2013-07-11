@@ -9,6 +9,7 @@ gem 'pg'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'fog'
+gem 'sorcery'
 
 
 # Gems used only for assets and not required
@@ -38,6 +39,7 @@ group :test, :development do
   gem 'pry-debugger'
   gem 'capybara'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 # To use ActiveModel has_secure_password

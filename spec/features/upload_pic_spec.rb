@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature "login" do 
-  scenario "can view an album" do
+  scenario "can view an album's pictures" do
     pic = FactoryGirl.create(:picture)
     visit album_path(pic.album.id)
     expect(page).to have_text("Delete")
