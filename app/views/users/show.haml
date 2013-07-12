@@ -1,0 +1,18 @@
+%h1
+  You have
+  = pluralize(@albums.count, "album")
+
+
+- @albums.each do |album|
+  = link_to album.name, album_path(album)
+  = link_to "Delete", album_path(album), method: :delete
+  %br
+
+%br
+%br
+%br
+
+= render partial:"albums/form"
+
+
+  

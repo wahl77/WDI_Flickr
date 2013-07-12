@@ -7,10 +7,40 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   
-  - if flash[:notice]
-    .div=flash[:notice]
-  - if flash[:alert]
-    .div=flash[:alert]
+  %body
+    .container 
+      .row
+        .span12
+          .navbar
+            %nav.navbar-inner
+              %ul.nav
+              - if !current_user
+                .btn.pull-right
+                  = link_to "Signup", new_user_path
 
+                = form_tag sessions_path, class:"navbar-form pull-right" do
+                  = text_field_tag :username, params[:username], placeholder:"Username", class:"span2"
+                  = password_field_tag :password, params[:password], type:"password", placeholder:"Password", class:"span2"
+                  = submit_tag :Login, :class => "btn"
 
-  = yield 
+              - else
+                .btn
+                  = link_to "My Albmus", user_path(current_user)
+                .pull-right 
+                  Hello
+                  = current_user.username.capitalize
+                  .btn
+                    = link_to "Logout", logout_path
+                
+               
+      .row
+        .span12
+    
+          - unless flash[:notice].blank?
+            .alert
+              = flash[:notice]
+          - unless flash[:alert].blank?
+            .alert.alert-error  
+              = flash[:alert]
+
+      = yield

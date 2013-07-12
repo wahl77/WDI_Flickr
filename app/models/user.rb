@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
   attr_accessible :email, :username, :password, :password_confirmation
+  has_many :albums
 
   validates :username,
     presence:true,
@@ -27,4 +28,7 @@ class User < ActiveRecord::Base
     write_attribute :email, value
   end
 
+  def num_albums
+    return self.albums.count
+  end
 end

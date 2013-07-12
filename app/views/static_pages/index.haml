@@ -1,29 +1,35 @@
-%h1 
-  This is the static_pages
+.row
+  .span12 
+    %h1 
+      This is the static_pages
 
-%h2 Albums
-= link_to "Browse Albums", albums_path
+    //%h2 Albums
+    //= link_to "Browse Albums", albums_path
 
-
-- if current_user 
-  Logged in as 
-  = current_user.username
-  = link_to "Logout", logout_path
-- else
-  = link_to "Signup", signup_path
-  = link_to "Login", login_path
+    Please Login to continue
 
 
-%br
+    - if current_user 
+      Logged in as 
+      = current_user.username
+      = link_to "Logout", logout_path
+    - else
+      = link_to "Signup", signup_path
+      = link_to "Login", login_path
 
-- User.all.each do |user|
-  = user.username
-  ,
-  = user.email
-  %br
 
-%br
-%h2
-  Active Users
+    %br
 
-= @current_users
+    %h2 Currently Active Users
+    %br 
+    - User.all.each do |user|
+      = user.username
+      ,
+      = user.email
+      %br
+
+    %br
+    %h2
+      Active Users
+
+    = @current_users
