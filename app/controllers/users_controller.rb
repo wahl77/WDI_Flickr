@@ -8,10 +8,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    binding.pry
     if @user.save
       # Send E-mail Confirmation
-      UserMailer.activation_needed_email(@user).deliver
+    #  UserMailer.activation_needed_email(@user).deliver
       redirect_to root_path, notice:"User created. Check for e-mail"
     else
       render :new
