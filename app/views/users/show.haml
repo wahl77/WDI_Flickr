@@ -1,7 +1,9 @@
 %h1
   You have
   = pluralize(@albums.count, "album")
-
+  
+  with a total of 
+  = pluralize(current_user.pictures.count, "photo")
 
 - @albums.each do |album|
   = link_to album.name, album_path(album)
@@ -12,7 +14,12 @@
 %br
 %br
 
-= render partial:"albums/form"
+- if current_user.quota > @albums.count
+  = render partial:"albums/form"
+
+%h3 Buy more albums
+
+
 
 
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712212216) do
+ActiveRecord::Schema.define(:version => 20130712232652) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -30,12 +30,12 @@ ActiveRecord::Schema.define(:version => 20130712212216) do
   add_index "pictures", ["album_id"], :name => "index_pictures_on_album_id"
 
   create_table "users", :force => true do |t|
-    t.string   "username",                        :null => false
+    t.string   "username",                                       :null => false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.string   "reset_password_token"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130712212216) do
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
     t.string   "last_login_from_ip_address"
+    t.integer  "quota",                           :default => 2
   end
 
   add_index "users", ["activation_token"], :name => "index_users_on_activation_token"

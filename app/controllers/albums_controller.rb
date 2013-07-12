@@ -5,8 +5,11 @@ class AlbumsController < ApplicationController
 
   def create
 
-    if current_user.albums.create(params[:album])
-      redirect_to root_path
+    album = Album.create(params[:album])
+
+    if album.save
+      current_user.albums << album
+      redirect_to album_path(album)
     else
       render :new
     end
@@ -26,8 +29,6 @@ class AlbumsController < ApplicationController
     else
       redirect_to user_path(current_user), alert:"Something went wrong"
     end
-      
-
   end
 
   def show
@@ -37,9 +38,6 @@ class AlbumsController < ApplicationController
     end
     @pictures = @album.pictures
     @picture = Picture.new
-  end
-
-  def index
   end
 
 end

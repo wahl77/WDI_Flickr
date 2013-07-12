@@ -10,6 +10,8 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'sorcery'
+gem 'activeadmin'
+
 
 
 # Gems used only for assets and not required
