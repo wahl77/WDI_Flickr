@@ -1,2 +1,26 @@
 %h1 Passwordresets#edit
 %p Find me in app/views/passwordresets/edit.html.haml
+= form_for @user, :url => passwordreset_path(@user), :html => {:method => :put} do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :username
+    %br/
+    = @user.username
+  .field
+    = f.label :password
+    %br/
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation
+    = hidden_field_tag :token, @token
+  .actions
+    = f.submit

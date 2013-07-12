@@ -13,6 +13,8 @@ RailsProject::Application.routes.draw do
     end
   end
 
+  resources :passwordresets
+
   resources :albums do
     resources :pictures
   end
