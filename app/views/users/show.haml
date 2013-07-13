@@ -14,10 +14,19 @@
 %br
 %br
 
+%p 
+  You currently have 
+  = @albums.count 
+  of your 
+  = current_user.quota
+  Albums
 - if current_user.quota > @albums.count
   = render partial:"albums/form"
 
+
 %h3 Buy more albums
+
+= render partial:"albums/buy"
 
 
 

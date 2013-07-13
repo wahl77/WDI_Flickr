@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'sorcery'
 gem 'activeadmin'
+gem 'stripe'
 
 
 

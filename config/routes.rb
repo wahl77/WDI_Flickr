@@ -4,6 +4,8 @@ RailsProject::Application.routes.draw do
   get "login" => 'sessions#new', as:"login"
   get "signup" => 'users#new', as:"signup"
 
+  post "transaction" => 'transaction#create', as:"transaction"
+
   root :to => 'static_pages#index'
 
   resources :sessions
