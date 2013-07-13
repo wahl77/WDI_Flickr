@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
   def num_albums
     return self.albums.count
   end
+
+  def is_admin?
+    return self.is_admin
+  end
 end
