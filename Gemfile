@@ -13,6 +13,7 @@ gem 'sorcery'
 gem 'activeadmin', '~> 0.5.1'
 gem 'devise'
 gem 'jquery-rails', '~> 2.3.0'
+gem 'stripe'
 
 
 
