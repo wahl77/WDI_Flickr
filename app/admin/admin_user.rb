@@ -1,6 +1,7 @@
 ActiveAdmin.register User do     
   index do                            
     column :username                     
+    column :is_admin
     default_actions                   
   end                                 
 
@@ -11,6 +12,7 @@ ActiveAdmin.register User do
       f.input :username                  
       f.input :password               
       f.input :password_confirmation  
+      f.input :is_admin
     end                               
     f.actions                         
   end                                 
