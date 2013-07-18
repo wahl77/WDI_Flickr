@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   skip_before_filter :require_login, only:[:new, :create, :activate]
 
+  #handle_asynchronously :activate 
+
   def new
     @user = User.new
   end
@@ -24,7 +26,7 @@ class UsersController < ApplicationController
 
   def activate
     if (@user = User.load_from_activation_token(params[:id]))
-      @user.activate!
+      @user.delay.activate!
       redirect_to(login_path, :notice => 'User was successfully activated.')
     else
       not_authenticated

@@ -3,7 +3,7 @@ class PasswordresetsController < ApplicationController
 
   def create
     @user = User.find_by_username(params[:username])
-    @user.deliver_reset_password_instructions! if @user
+    @user.delay.deliver_reset_password_instructions! if @user
     redirect_to(root_path, :notice => 'Instructions have been sent to your email.')
   end
 

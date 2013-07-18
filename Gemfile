@@ -10,7 +10,11 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'sorcery'
-gem 'activeadmin'
+gem 'activeadmin', '~> 0.5.1'
+gem 'devise'
+gem 'jquery-rails', '~> 2.3.0'
+gem 'stripe'
+gem 'delayed_job_active_record'
 
 
 
@@ -26,7 +30,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
 group :development do
   gem 'pry-rails'
