@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
     presence:true, on: :create
 
 
+  #handle_asynchronously :save
+
   # Downcase all usernames by default
   def username=(value)
     write_attribute :username, value.downcase
